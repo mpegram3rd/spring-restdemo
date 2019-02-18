@@ -1,5 +1,5 @@
 # Spring (non-Boot) Rest Demo
-===========
+====
 There's plenty of tutorials out there showing you how to create a Spring Boot REST app, but this app shows the "old" way of
 doing it using Java Configuration.  In general Spring Boot is the way to go, but I'm adding this here for reference in case I
 need to go back and do it the old way.
