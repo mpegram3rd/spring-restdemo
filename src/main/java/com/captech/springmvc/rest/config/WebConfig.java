@@ -3,14 +3,12 @@ package com.captech.springmvc.rest.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.converter.ByteArrayHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.validation.Validator;
 import java.util.List;
@@ -29,7 +27,7 @@ import static com.fasterxml.jackson.databind.SerializationFeature.WRITE_ENUMS_US
 @Configuration
 @EnableWebMvc
 @ComponentScan({ "com.captech.springmvc.rest.interfaces", "com.captech.springmvc.rest.service" })
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
 	/**
 	 * {@inheritDoc}
@@ -39,8 +37,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	 * </p>
 	 * <ul>
 	 * <li>MappingJackson2HttpMessageConverter</li>
-	 * <li>ByteArrayHttpMessageConverter</li>
-	 * <li>A StringHttpMessageConverter</li>
 	 * </ul>
 	 */
 	@Override
@@ -51,8 +47,6 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 				.setSerializationInclusion(NON_NULL);
 
 		converters.add(jackson2);
-		converters.add(new ByteArrayHttpMessageConverter());
-		converters.add(new StringHttpMessageConverter());
 	}
 
 	/**
