@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.captech.springmvc</groupId>
-    <artifactId>rest-demo</artifactId>
+    <artifactId>spring-restdemo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
