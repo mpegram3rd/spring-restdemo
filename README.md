@@ -6,4 +6,4 @@ need to go back and do it the old way.
 
 Simply build this app, and deploy it to Tomcat.   To access the REST endpoint just call:
 
-http://localhost:8080/restdemo_war_exploded/hello/{name}
+http://localhost:8080/{servlet root context}/hello/{name}
