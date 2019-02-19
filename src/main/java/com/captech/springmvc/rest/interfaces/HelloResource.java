@@ -1,5 +1,6 @@
 package com.captech.springmvc.rest.interfaces;
 
+import com.captech.springmvc.rest.exceptions.DataNotFoundException;
 import com.captech.springmvc.rest.model.HelloModel;
 import com.captech.springmvc.rest.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,5 +35,10 @@ public class HelloResource {
 	public ResponseEntity<HelloModel> sayHello(@PathVariable final String name) {
 		return ResponseEntity.ok(helloService.sayHello(name));
 
+	}
+
+	@GetMapping(value = "/goodbye", produces = APPLICATION_JSON_VALUE)
+	public ResponseEntity goodbye() throws DataNotFoundException {
+		throw new DataNotFoundException("Ooopsie!  I couldn't find that");
 	}
 }
